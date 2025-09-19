@@ -8,6 +8,6 @@ RUN ./mvnw dependency:go-offline
 
 COPY src ./src
 RUN ./mvnw clean package -DskipTests
-
+#PORT
 EXPOSE 8080
 CMD ["java", "-jar", "target/parkingbackend-0.0.1-SNAPSHOT.jar"]
