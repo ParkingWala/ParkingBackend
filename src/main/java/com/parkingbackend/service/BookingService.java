@@ -20,6 +20,10 @@ public class BookingService {
         this.slotRepository = slotRepository;
     }
 
+    public List<Booking> listBookings() {
+        return bookingRepository.findAll();
+    }
+
     public Slot createSlot(Slot slot) {
         return slotRepository.save(slot);
     }

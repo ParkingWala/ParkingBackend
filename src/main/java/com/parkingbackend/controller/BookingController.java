@@ -28,6 +28,11 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.listSlots());
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Booking>> listBookings() {
+        return ResponseEntity.ok(bookingService.listBookings());
+    }
+
     @PostMapping("/create")
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
         Booking b = bookingService.createBooking(booking);

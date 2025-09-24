@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -28,6 +29,11 @@ public class PaymentService {
     public PaymentService(PaymentRecordRepository paymentRecordRepository) {
         this.paymentRecordRepository = paymentRecordRepository;
     }
+
+    public List<PaymentRecord> listPayments() {
+        return paymentRecordRepository.findAll();
+    }
+
 
     public CreateOrderResponse createOrder(CreateOrderRequest req) {
         String orderId = "ORD-" + UUID.randomUUID().toString();

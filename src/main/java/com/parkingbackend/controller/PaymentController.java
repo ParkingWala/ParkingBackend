@@ -2,10 +2,12 @@ package com.parkingbackend.controller;
 
 import com.parkingbackend.dto.CreateOrderRequest;
 import com.parkingbackend.dto.CreateOrderResponse;
+import com.parkingbackend.model.PaymentRecord;
 import com.parkingbackend.service.PaymentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,6 +18,11 @@ public class PaymentController {
 
     public PaymentController(PaymentService paymentService) {
         this.paymentService = paymentService;
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<PaymentRecord>> listPayments() {
+        return ResponseEntity.ok(paymentService.listPayments());
     }
 
     @PostMapping("/create-order")
